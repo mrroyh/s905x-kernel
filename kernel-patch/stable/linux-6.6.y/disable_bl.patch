@@ -1,0 +1,36 @@
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
+index 6eec4e815..479fbe85b 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905x-p212.dtsi
+@@ -182,22 +182,6 @@ &sd_emmc_c {
+ 	vqmmc-supply = <&vddio_boot>;
+ };
+ 
+-/* This is connected to the Bluetooth module: */
+-&uart_A {
+-	status = "okay";
+-	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
+-	pinctrl-names = "default";
+-	uart-has-rtscts;
+-
+-	bluetooth {
+-		compatible = "brcm,bcm43438-bt";
+-		shutdown-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
+-		max-speed = <2000000>;
+-		clocks = <&wifi32k>;
+-		clock-names = "lpo";
+-	};
+-};
+-
+ &uart_AO {
+ 	status = "okay";
+ 	pinctrl-0 = <&uart_ao_a_pins>;
+@@ -206,7 +190,7 @@ &uart_AO {
+ 
+ &usb {
+ 	status = "okay";
+-	dr_mode = "host";
++	dr_mode = "peripheral";
+ };
+ 
+ &usb2_phy0 {
